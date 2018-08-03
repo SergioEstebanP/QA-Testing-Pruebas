@@ -1,0 +1,165 @@
+package com.page;
+
+import net.serenitybdd.core.annotations.findby.By;
+import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.PageObject;
+import net.thucydides.core.annotations.DefaultUrl;
+import net.thucydides.core.annotations.WhenPageOpens;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
+
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Set;
+
+@DefaultUrl("https://www.ryanair.com/es/es/")
+public class RyanairSearchPage extends PageObject {
+
+    JavascriptExecutor js = (JavascriptExecutor) this.getDriver();
+    WebDriver driver2 = this.getDriver();
+    //ATRIBUTOS
+    @CacheLookup
+    @FindBy(xpath = "//*[@id=\"lbl-flight-search-type-one-way\"]")
+    private WebElement idaButton;
+    @FindBy(css = "input[placeholder='Aeropuerto de salida']")
+    private WebElement sourceTextfield;
+    @FindBy(css = "input[placeholder='Aeropuerto de destino']")
+    private WebElement destinyTextfield;
+    @FindBy(css = "input[placeholder='DD']")
+    private WebElement destinyTextfieldD;
+    @FindBy(css = "input[placeholder='MM']")
+    private WebElement destinyTextfieldM;
+    @FindBy(css = "input[placeholder='AAAA']")
+    private WebElement destinyTextFieldA;
+    @FindBy(xpath = "//*[@id=\"row-dates-pax\"]/div[2]/div[2]/div[2]/div/div[1]")
+    private WebElement firstClickAdults;
+    @FindBy(xpath = "//*[@id=\"row-dates-pax\"]/div[2]/div[3]/div/div/div[2]/popup-content/div[6]/div/div[3]/core-inc-dec/button[2]")
+    private WebElement secondClickAdults;
+    @FindBy(xpath = "//*[@id=\"search-container\"]/div[1]/div/form/div[4]/button[2]")
+    private WebElement vamosButton;
+    @FindBy(xpath = "//*[@id=\"search-container\"]/div[1]/div/div/div[2]/div/label/span")
+    private WebElement aceptarCondiciones;
+    @FindBy(xpath = "//*[@id=\"home\"]/cookie-pop-up/div/div[2]")
+    private WebElement cookiesPopup;
+    @FindBy(xpath ="/html/body/rooms-root/rooms-nav-header/div/div/div[1]/rooms-home-link/a/img")
+    private WebElement logoRooms;
+    @FindBy(css = "div[class='direct']")
+    private WebElement fly;
+    @FindBy(css = "li[ng-message='dateAvailable']")
+    private WebElement error;
+
+    //CONSTRUCTOR
+    public RyanairSearchPage(WebDriver driver) {
+        super(driver);
+        max(driver);
+    }
+
+    public static void max(WebDriver driver){
+        driver.manage().window().maximize();
+    }
+
+
+    @WhenPageOpens
+    public void waitUnitlLogoAppears() {
+        $("#home").waitUntilVisible();
+    }
+
+    public void  selectDirection() {
+        element(idaButton).waitUntilClickable();
+        element(idaButton).click();
+        js.executeScript("window.scrollBy(0,1000)");
+    }
+
+    public void typeSourceCity (String searchRequest) {
+        element(sourceTextfield).clear();
+        element(sourceTextfield).typeAndEnter(searchRequest);
+    }
+
+    public void typeDestinyCity (String searchRequest) {
+        element(destinyTextfield).clear();
+        element(destinyTextfield).typeAndEnter(searchRequest);
+    }
+
+    public void typeDateTrip () {
+        element(destinyTextfieldD).waitUntilClickable();
+        element(destinyTextfieldM).waitUntilClickable();
+        element(destinyTextFieldA).waitUntilClickable();
+
+        element(destinyTextfieldD).clear();
+        element(destinyTextfieldM).clear();
+        element(destinyTextFieldA).clear();
+
+        java.util.GregorianCalendar fecha = new GregorianCalendar();
+        fecha.add(Calendar.DAY_OF_MONTH, 2);
+        String dia = Integer.toString(fecha.get(GregorianCalendar.DATE));
+        String mes = Integer.toString(fecha.get(GregorianCalendar.MONTH)+1);
+        String year = Integer.toString(fecha.get(GregorianCalendar.YEAR));
+
+        System.out.println(dia + "-" + mes + "-" + year);
+
+        element(destinyTextfieldD).typeAndTab(dia);
+        element(destinyTextfieldM).typeAndTab(mes);
+        element(destinyTextFieldA).typeAndTab(year);
+    }
+
+    public void selectNumberOfAdults() {
+        element(firstClickAdults).waitUntilClickable().click();
+        element(secondClickAdults).waitUntilClickable().click();
+    }
+
+   public void selectGo() {
+        /*if (element(error).isDisplayed()){
+            return false;
+        }
+        element(vamosButton).waitUntilClickable().click();
+        return true;
+        */
+       element(vamosButton).waitUntilClickable().click();
+   }
+    public boolean selectGoValid() {
+        try {
+            element(error).isVisible();
+            return false;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        element(vamosButton).waitUntilClickable().click();
+        return true;
+   }
+    public void closeCookiesPolitics () {
+        element(cookiesPopup).waitUntilEnabled().click();
+    }
+
+    public void closeWindow () {
+        element(logoRooms).waitUntilVisible();
+        Set<String> handles = driver2.getWindowHandles(); // Gets all the available windows
+        for(String handle : handles) {
+            driver2.switchTo().window(handle); // switching back to each window in loop
+            if(driver2.getTitle().equals("Ryanair")); // Compare title and if title matches stop loop and return true
+        }
+    }
+
+    public boolean verifyResults () {
+        while (!isDisplayed(fly)) {
+            try {
+                Thread.sleep(1000);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        return true;
+    }
+
+    public static boolean isDisplayed(WebElement element) {
+        try {
+            if(element.isDisplayed())
+                return element.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+        return false;
+    }
+}
