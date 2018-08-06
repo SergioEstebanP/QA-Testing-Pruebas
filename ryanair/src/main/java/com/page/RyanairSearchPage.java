@@ -11,8 +11,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 import java.util.Set;
 
 @DefaultUrl("https://www.ryanair.com/es/es/")
@@ -83,7 +86,7 @@ public class RyanairSearchPage extends PageObject {
         element(destinyTextfield).typeAndEnter(searchRequest);
     }
 
-    public void typeDateTrip () {
+    public void typeDateTrip (String fechaBuscada) {
         element(destinyTextfieldD).waitUntilClickable();
         element(destinyTextfieldM).waitUntilClickable();
         element(destinyTextFieldA).waitUntilClickable();
@@ -92,31 +95,25 @@ public class RyanairSearchPage extends PageObject {
         element(destinyTextfieldM).clear();
         element(destinyTextFieldA).clear();
 
-        java.util.GregorianCalendar fecha = new GregorianCalendar();
-        fecha.add(Calendar.DAY_OF_MONTH, 2);
-        String dia = Integer.toString(fecha.get(GregorianCalendar.DATE));
-        String mes = Integer.toString(fecha.get(GregorianCalendar.MONTH)+1);
-        String year = Integer.toString(fecha.get(GregorianCalendar.YEAR));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
+        LocalDate date = LocalDate.parse(fechaBuscada, formatter);
 
-        System.out.println(dia + "-" + mes + "-" + year);
+        String dia = Integer.toString(date.getDayOfMonth());
+        String mes = Integer.toString(date.getMonthValue());
+        String year = Integer.toString(date.getYear());
 
         element(destinyTextfieldD).typeAndTab(dia);
         element(destinyTextfieldM).typeAndTab(mes);
         element(destinyTextFieldA).typeAndTab(year);
     }
 
-    public void selectNumberOfAdults() {
+    public void selectNumberOfAdults(String adults) {
         element(firstClickAdults).waitUntilClickable().click();
-        element(secondClickAdults).waitUntilClickable().click();
+        for (int i=1;i<Integer.parseInt(adults);i++)
+            element(secondClickAdults).waitUntilClickable().click();
     }
 
    public void selectGo() {
-        /*if (element(error).isDisplayed()){
-            return false;
-        }
-        element(vamosButton).waitUntilClickable().click();
-        return true;
-        */
        element(vamosButton).waitUntilClickable().click();
    }
     public boolean selectGoValid() {

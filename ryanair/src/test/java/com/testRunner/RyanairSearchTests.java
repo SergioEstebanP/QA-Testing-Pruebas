@@ -13,7 +13,8 @@ import java.net.InetAddress;
 @CucumberOptions(
         features = {"src/test/resources/features"},
         plugin = {"pretty", "html:target/cucumber", "json:target/cucumber-report.json"},
-        glue = {"com.stepDefinitions"}
+        glue = {"com.stepDefinitions"},
+        tags = {"@parametros"}
 )
 public class RyanairSearchTests {
 

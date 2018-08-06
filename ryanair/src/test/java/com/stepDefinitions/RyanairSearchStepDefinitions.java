@@ -38,15 +38,16 @@ public class RyanairSearchStepDefinitions {
         ryanairSearchSteps.typeDestinyCity(destinyCity);
     }
 
-    @And("^I want to go next day from today$")
-    public void iWantToGoToNextDayFromToday () {
-        ryanairSearchSteps.typeDateTrip();
+    @And("^I want to go in date '(.*)'$")
+    public void iWantToGoToNextDayFromToday (String fechaViaje) {
+        ryanairSearchSteps.typeDateTrip(fechaViaje);
     }
 
-    @And("^The trip is for 2 adults$")
-    public void theTripIsForXAdults () {
-        ryanairSearchSteps.selectNumberOfAdults();
+    @And("^The trip is for '(.*)' adults$")
+    public void theTripIsForNumberOfAdultsAdults(String adults) {
+        ryanairSearchSteps.selectNumberOfAdults(adults);
     }
+
 
     @And("^I click in go button$")
     public void iClickInGoButton () {
@@ -62,4 +63,5 @@ public class RyanairSearchStepDefinitions {
     public void seeTheResultPage () {
         ryanairSearchSteps.seeTheResultPage();
     }
+
 }

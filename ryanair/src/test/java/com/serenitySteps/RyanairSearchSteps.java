@@ -39,13 +39,13 @@ public class RyanairSearchSteps {
     }
 
     @Step
-    public void typeDateTrip() {
-        searchPage.typeDateTrip();
+    public void typeDateTrip(String searchRequest) {
+        searchPage.typeDateTrip(searchRequest);
     }
 
     @Step
-    public void selectNumberOfAdults() {
-        searchPage.selectNumberOfAdults();
+    public void selectNumberOfAdults(String searchRequest) {
+        searchPage.selectNumberOfAdults(searchRequest);
     }
 
     @Step
