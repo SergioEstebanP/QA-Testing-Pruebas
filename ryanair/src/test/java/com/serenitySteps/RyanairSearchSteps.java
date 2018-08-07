@@ -24,8 +24,8 @@ public class RyanairSearchSteps {
     }
 
     @Step
-    public void selectDirection() {
-        searchPage.selectDirection();
+    public void selectTheDirection(String searchRequest) {
+        searchPage.selectTheDirection(searchRequest);
     }
 
     @Step
@@ -44,6 +44,11 @@ public class RyanairSearchSteps {
     }
 
     @Step
+    public void typeDateTripReturn(String searchRequest) {
+        searchPage.typeDateTripReturn(searchRequest);
+    }
+
+    @Step
     public void selectNumberOfAdults(String searchRequest) {
         searchPage.selectNumberOfAdults(searchRequest);
     }
@@ -54,12 +59,13 @@ public class RyanairSearchSteps {
     }
 
     @Step
-    public void closeRoomsWindows() {
-        searchPage.closeWindow();
+    public void tabToResult() {
+        searchPage.tabToResult();
     }
 
     @Step
     public void seeTheResultPage() {
-        Assert.assertTrue("No se ha encontrado vuelo para la fecha pedida" , searchPage.verifyResults());
+        Assert.assertTrue("No se ha encontrado vuelo para la fecha pedida" , resultsPage.verifyResults());
     }
+
 }

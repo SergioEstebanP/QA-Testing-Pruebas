@@ -23,9 +23,9 @@ public class RyanairSearchStepDefinitions {
         ryanairSearchSteps.closeCookiesPolitics();
     }
 
-    @When("^I click for ida$")
-    public void iSelectTheDirection() throws Throwable {
-        ryanairSearchSteps.selectDirection();
+    @When("^I click for '(.*)'$")
+    public void iSelectDirection(String direccion) {
+        ryanairSearchSteps.selectTheDirection(direccion);
     }
 
     @And("^I want to go from '(.*)'$")
@@ -38,9 +38,20 @@ public class RyanairSearchStepDefinitions {
         ryanairSearchSteps.typeDestinyCity(destinyCity);
     }
 
+    @And("^I want to go next day from today$")
+    public void iWantToGoNextDayFromToday() {
+        String fechaViaje = "";
+        ryanairSearchSteps.typeDateTrip(fechaViaje);
+    }
+
     @And("^I want to go in date '(.*)'$")
     public void iWantToGoToNextDayFromToday (String fechaViaje) {
         ryanairSearchSteps.typeDateTrip(fechaViaje);
+    }
+
+    @And("^I want to return in date '(.*)'$")
+    public void iWantToReturnInDateDateReturn(String fechaVuelta) {
+        ryanairSearchSteps.typeDateTripReturn(fechaVuelta);
     }
 
     @And("^The trip is for '(.*)' adults$")
@@ -48,15 +59,14 @@ public class RyanairSearchStepDefinitions {
         ryanairSearchSteps.selectNumberOfAdults(adults);
     }
 
-
     @And("^I click in go button$")
     public void iClickInGoButton () {
         ryanairSearchSteps.selectGo();
     }
 
-    @And("^Close rooms window$")
-    public void  closeRoomsWindows () {
-        ryanairSearchSteps.closeRoomsWindows();
+    @And("^I tab to result page$")
+    public void  tabToResult () {
+        ryanairSearchSteps.tabToResult();
     }
 
     @Then("^I see the result page with almost one flight$")

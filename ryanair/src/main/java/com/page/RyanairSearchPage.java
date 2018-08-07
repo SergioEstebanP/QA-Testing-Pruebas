@@ -1,58 +1,68 @@
 package com.page;
 
-import net.serenitybdd.core.annotations.findby.By;
+import com.generalActions.RyanairGeneralActions;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.WhenPageOpens;
+import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Locale;
-import java.util.Set;
 
 @DefaultUrl("https://www.ryanair.com/es/es/")
 public class RyanairSearchPage extends PageObject {
 
-    JavascriptExecutor js = (JavascriptExecutor) this.getDriver();
-    WebDriver driver2 = this.getDriver();
+    private JavascriptExecutor js = (JavascriptExecutor) this.getDriver();
+
     //ATRIBUTOS
     @CacheLookup
+    // botones de ida y vuelta
     @FindBy(xpath = "//*[@id=\"lbl-flight-search-type-one-way\"]")
-    private WebElement idaButton;
+    private WebElementFacade idaButton;
+    @FindBy(xpath = "//*[@id=\"lbl-flight-search-type-return\"]")
+    private WebElementFacade idaVueltaButton;
+
+    // campos de aeropuesto de salida y llegada
     @FindBy(css = "input[placeholder='Aeropuerto de salida']")
-    private WebElement sourceTextfield;
+    private WebElementFacade sourceTextfield;
     @FindBy(css = "input[placeholder='Aeropuerto de destino']")
-    private WebElement destinyTextfield;
-    @FindBy(css = "input[placeholder='DD']")
-    private WebElement destinyTextfieldD;
-    @FindBy(css = "input[placeholder='MM']")
-    private WebElement destinyTextfieldM;
-    @FindBy(css = "input[placeholder='AAAA']")
-    private WebElement destinyTextFieldA;
+    private WebElementFacade destinyTextfield;
+
+    // campos de fecha de ida
+    @FindBy(css = "input[aria-label='Vuelo de ida: - DD']")
+    private WebElementFacade destinyTextfieldD;
+    @FindBy(css = "input[aria-label='Vuelo de ida: - MM']")
+    private WebElementFacade destinyTextfieldM;
+    @FindBy(css = "input[aria-label='Vuelo de ida: - YYYY']")
+    private WebElementFacade destinyTextFieldA;
+
+    // campos de fecha de ida
+    @FindBy(css = "input[aria-label='Vuelo de vuelta: - DD']")
+    private WebElementFacade destinyTextfieldD1;
+    @FindBy(css = "input[aria-label='Vuelo de vuelta: - MM']")
+    private WebElementFacade destinyTextfieldM1;
+    @FindBy(css = "input[aria-label='Vuelo de vuelta: - YYYY']")
+    private WebElementFacade destinyTextFieldA1;
+
+    // campos bomo pasajeros
     @FindBy(xpath = "//*[@id=\"row-dates-pax\"]/div[2]/div[2]/div[2]/div/div[1]")
-    private WebElement firstClickAdults;
+    private WebElementFacade firstClickAdults;
     @FindBy(xpath = "//*[@id=\"row-dates-pax\"]/div[2]/div[3]/div/div/div[2]/popup-content/div[6]/div/div[3]/core-inc-dec/button[2]")
-    private WebElement secondClickAdults;
+    private WebElementFacade secondClickAdults;
     @FindBy(xpath = "//*[@id=\"search-container\"]/div[1]/div/form/div[4]/button[2]")
-    private WebElement vamosButton;
+
+    // boton de vamos
+    private WebElementFacade vamosButton;
     @FindBy(xpath = "//*[@id=\"search-container\"]/div[1]/div/div/div[2]/div/label/span")
-    private WebElement aceptarCondiciones;
+    private WebElementFacade aceptarCondiciones;
     @FindBy(xpath = "//*[@id=\"home\"]/cookie-pop-up/div/div[2]")
-    private WebElement cookiesPopup;
+    private WebElementFacade cookiesPopup;
     @FindBy(xpath ="/html/body/rooms-root/rooms-nav-header/div/div/div[1]/rooms-home-link/a/img")
-    private WebElement logoRooms;
-    @FindBy(css = "div[class='direct']")
-    private WebElement fly;
+    private WebElementFacade logoRooms;
     @FindBy(css = "li[ng-message='dateAvailable']")
-    private WebElement error;
+    private WebElementFacade error;
 
     //CONSTRUCTOR
     public RyanairSearchPage(WebDriver driver) {
@@ -70,93 +80,40 @@ public class RyanairSearchPage extends PageObject {
         $("#home").waitUntilVisible();
     }
 
-    public void  selectDirection() {
-        element(idaButton).waitUntilClickable();
-        element(idaButton).click();
-        js.executeScript("window.scrollBy(0,1000)");
+    public void  selectTheDirection(String direccion) {
+        js.executeScript("window.scrollBy(0,500)");
+        Assert.assertTrue("Fail in direction selection", RyanairGeneralActions.checkDirection(idaButton, idaVueltaButton, direccion,"click"));
     }
 
     public void typeSourceCity (String searchRequest) {
-        element(sourceTextfield).clear();
-        element(sourceTextfield).typeAndEnter(searchRequest);
+        Assert.assertTrue("Fail while typing source airport", RyanairGeneralActions.typeSourceCity(sourceTextfield, searchRequest,"type"));
     }
 
     public void typeDestinyCity (String searchRequest) {
-        element(destinyTextfield).clear();
-        element(destinyTextfield).typeAndEnter(searchRequest);
+        Assert.assertTrue("Fail while typing destiny airport", RyanairGeneralActions.typeSourceCity(destinyTextfield, searchRequest,"type"));
     }
 
     public void typeDateTrip (String fechaBuscada) {
-        element(destinyTextfieldD).waitUntilClickable();
-        element(destinyTextfieldM).waitUntilClickable();
-        element(destinyTextFieldA).waitUntilClickable();
+        Assert.assertTrue("Fail while typing from date", RyanairGeneralActions.typeDateTrip(destinyTextfieldD, destinyTextfieldM, destinyTextFieldA, destinyTextfieldD1, destinyTextfieldM1, destinyTextFieldA1, fechaBuscada, "type"));
+    }
 
-        element(destinyTextfieldD).clear();
-        element(destinyTextfieldM).clear();
-        element(destinyTextFieldA).clear();
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
-        LocalDate date = LocalDate.parse(fechaBuscada, formatter);
-
-        String dia = Integer.toString(date.getDayOfMonth());
-        String mes = Integer.toString(date.getMonthValue());
-        String year = Integer.toString(date.getYear());
-
-        element(destinyTextfieldD).typeAndTab(dia);
-        element(destinyTextfieldM).typeAndTab(mes);
-        element(destinyTextFieldA).typeAndTab(year);
+    public void typeDateTripReturn(String fechaVuelta) {
+        Assert.assertTrue("Fail while typing finale date", RyanairGeneralActions.typeDateTripReturn(destinyTextfieldD, destinyTextfieldM, destinyTextFieldA, destinyTextfieldD1, destinyTextfieldM1, destinyTextFieldA1, fechaVuelta, "type"));
     }
 
     public void selectNumberOfAdults(String adults) {
-        element(firstClickAdults).waitUntilClickable().click();
-        for (int i=1;i<Integer.parseInt(adults);i++)
-            element(secondClickAdults).waitUntilClickable().click();
+        Assert.assertTrue("Fail while selecting the number of adults", RyanairGeneralActions.selectNumberOfAdults(firstClickAdults, secondClickAdults, adults, "click"));
     }
 
    public void selectGo() {
-       element(vamosButton).waitUntilClickable().click();
+       Assert.assertTrue("Fail while click in go button", RyanairGeneralActions.selectGo(vamosButton, "click"));
    }
-    public boolean selectGoValid() {
-        try {
-            element(error).isVisible();
-            return false;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        element(vamosButton).waitUntilClickable().click();
-        return true;
-   }
+
     public void closeCookiesPolitics () {
-        element(cookiesPopup).waitUntilEnabled().click();
+        Assert.assertTrue("Fail while click in cookies", RyanairGeneralActions.selectGo(cookiesPopup, "click"));
     }
 
-    public void closeWindow () {
-        element(logoRooms).waitUntilVisible();
-        Set<String> handles = driver2.getWindowHandles(); // Gets all the available windows
-        for(String handle : handles) {
-            driver2.switchTo().window(handle); // switching back to each window in loop
-            if(driver2.getTitle().equals("Ryanair")); // Compare title and if title matches stop loop and return true
-        }
-    }
-
-    public boolean verifyResults () {
-        while (!isDisplayed(fly)) {
-            try {
-                Thread.sleep(1000);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-        }
-        return true;
-    }
-
-    public static boolean isDisplayed(WebElement element) {
-        try {
-            if(element.isDisplayed())
-                return element.isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
-        return false;
+    public void tabToResult () {
+        Assert.assertTrue("Fail while tab in result page", RyanairGeneralActions.tabToResult(logoRooms, this.getDriver()));
     }
 }

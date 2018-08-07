@@ -34,8 +34,24 @@ public class RyanairResultPage extends PageObject {
     }
 
     public boolean verifyResults () {
-        waitForPage();
+        while (!isDisplayed(fly)) {
+            try {
+                Thread.sleep(1000);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        driver2.quit();
         return true;
     }
 
+    public static boolean isDisplayed(WebElement element) {
+        try {
+            if(element.isDisplayed())
+                return element.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+        return false;
+    }
 }
