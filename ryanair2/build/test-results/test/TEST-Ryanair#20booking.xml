@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Ryanair booking" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-08-06T12:27:30" hostname="SG-2708" time="44.915">
+  <properties/>
+  <testcase name="Ryanair booking" classname="Ryanair booking" time="44.915"/>
+  <system-out><![CDATA[    ?[32mGiven ?[0m?[32mI have ryanair webpage open in Chrome?[0m       ?[90m# RyanairSearchStepDefinitions.iWantToBookingOnRyanair()?[0m
+    ?[32mAnd ?[0m?[32mI close cookies politics?[0m                      ?[90m# RyanairSearchStepDefinitions.closeCookiesPolitics()?[0m
+    ?[32mWhen ?[0m?[32mI click for ida?[0m                              ?[90m# RyanairSearchStepDefinitions.iSelectTheDirection()?[0m
+    ?[32mAnd ?[0m?[32mI want to go from '?[0m?[32m?[1mValladolid?[0m?[32m'?[0m                ?[90m# RyanairSearchStepDefinitions.iWantToGoFrom(String)?[0m
+    ?[32mAnd ?[0m?[32mI want to go to '?[0m?[32m?[1mBarcelona-El Prat?[0m?[32m'?[0m           ?[90m# RyanairSearchStepDefinitions.iWantToGoTo(String)?[0m
+2018-08-06
+    ?[32mAnd ?[0m?[32mI want to go next day from today?[0m              ?[90m# RyanairSearchStepDefinitions.iWantToGoNextDayFromToday()?[0m
+    ?[32mAnd ?[0m?[32mThe trip is for '?[0m?[32m?[1m2?[0m?[32m' adults?[0m                    ?[90m# RyanairSearchStepDefinitions.theTripIsForNumberOfAdultsAdults(String)?[0m
+    ?[32mAnd ?[0m?[32mI click in go button?[0m                          ?[90m# RyanairSearchStepDefinitions.iClickInGoButton()?[0m
+    ?[32mAnd ?[0m?[32mClose rooms window?[0m                            ?[90m# RyanairSearchStepDefinitions.closeRoomsWindows()?[0m
+    ?[32mThen ?[0m?[32mI see the result page with almost one flight?[0m ?[90m# RyanairSearchStepDefinitions.seeTheResultPage()?[0m
+]]></system-out>
+  <system-err><![CDATA[ago 06, 2018 2:27:30 PM org.openqa.selenium.remote.DesiredCapabilities chrome
+INFORMACIÓN: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
+Starting ChromeDriver 2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e) on port 20354
+Only local connections are allowed.
+ago 06, 2018 2:27:33 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFORMACIÓN: Detected dialect: OSS
+]]></system-err>
+</testsuite>
