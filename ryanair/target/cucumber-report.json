@@ -1,0 +1,196 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 37,
+        "name": "Ryanair booking with parameters table",
+        "description": "",
+        "id": "ryanair-booking;ryanair-booking-with-parameters-table;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 29501000105,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "I have ryanair webpage open in Chrome",
+            "match": {
+              "location": "RyanairSearchStepDefinitions.iWantToBookingOnRyanair()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 265959226,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "I close cookies politics",
+            "match": {
+              "location": "RyanairSearchStepDefinitions.closeCookiesPolitics()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 241970787,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "I click for \u0027idaVuelta\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "idaVuelta",
+                  "offset": 13
+                }
+              ],
+              "location": "RyanairSearchStepDefinitions.iSelectDirection(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 910374980,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "I want to go from \u0027Valladolid\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Valladolid",
+                  "offset": 19
+                }
+              ],
+              "location": "RyanairSearchStepDefinitions.iWantToGoFrom(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 589921980,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "I want to go to \u0027Barcelona\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Barcelona",
+                  "offset": 17
+                }
+              ],
+              "location": "RyanairSearchStepDefinitions.iWantToGoTo(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3661616791,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "I want to go in date \u0027August 8, 2018\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "August 8, 2018",
+                  "offset": 22
+                }
+              ],
+              "location": "RyanairSearchStepDefinitions.iWantToGoToNextDayFromToday(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3046390108,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "I want to return in date \u0027August 12, 2018\u0027",
+            "match": {
+              "arguments": [
+                {
+                  "val": "August 12, 2018",
+                  "offset": 26
+                }
+              ],
+              "location": "RyanairSearchStepDefinitions.iWantToReturnInDateDateReturn(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 453625252,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "The trip is for \u00272\u0027 adults",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2",
+                  "offset": 17
+                }
+              ],
+              "location": "RyanairSearchStepDefinitions.theTripIsForNumberOfAdultsAdults(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 292902754,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "I click in go button",
+            "match": {
+              "location": "RyanairSearchStepDefinitions.iClickInGoButton()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 6067468685,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "I tab to result page",
+            "match": {
+              "location": "RyanairSearchStepDefinitions.tabToResult()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 5183922033,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "I see the result page with almost one flight",
+            "match": {
+              "location": "RyanairSearchStepDefinitions.seeTheResultPage()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@parametros"
+          }
+        ]
+      }
+    ],
+    "name": "Ryanair booking",
+    "description": "  In order to book a trip\n  As a generic user\n  I want to search a flight  from some city\n  to another city in the given days by the user\n  for the given number and types of passengers",
+    "id": "ryanair-booking",
+    "keyword": "Feature",
+    "uri": "src/test/resources/features/example.feature",
+    "tags": []
+  }
+]

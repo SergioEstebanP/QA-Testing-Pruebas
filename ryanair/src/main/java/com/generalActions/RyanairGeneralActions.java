@@ -51,39 +51,33 @@ public class RyanairGeneralActions {
         return false;
     }
 
-    public static boolean typeDateTrip (WebElementFacade webE1, WebElementFacade webE2, WebElementFacade webE3, WebElementFacade webE4, WebElementFacade webE5, WebElementFacade webE6, String fecha, String action) {
+    public static boolean typeDateTripOnce (WebElementFacade webE1, WebElementFacade webE2, WebElementFacade webE3, WebElementFacade webE4, WebElementFacade webE5, WebElementFacade webE6, String fecha, String action) {
+        System.out.println(soloIda);
         try {
-            switch (action) {
-                case "type":
+            if (action.equals("type")) {
+                esperarCamposFecha(webE1, webE2, webE3, webE4, webE5, webE6);
+                if (soloIda) {
+                    LocalDate date = null;
                     if (fecha.equals("")) {
-                        esperarCamposFecha(webE1, webE2, webE3, webE4, webE5, webE6);
-                        LocalDate date = LocalDate.now();
-                        rellenarCampos(date, webE1, webE2, webE3, webE4, webE5, webE6);
-                    }else {
-                        esperarCamposFecha(webE1, webE2, webE3, webE4, webE5, webE6);
+                        date = LocalDate.now();
+                    } else {
                         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
-                        LocalDate date = LocalDate.parse(fecha, formatter);
-                        soloIda=true;
-                        rellenarCampos(date, webE1, webE2, webE3, webE4, webE5, webE6);
+                        date = LocalDate.parse(fecha, formatter);
+                        soloIda = true;
                     }
-                    return true;
-            }
-        } catch (Exception e) {
-            return false;
-        }
-        return false;
-    }
-
-    public static boolean typeDateTripReturn (WebElementFacade webE1, WebElementFacade webE2, WebElementFacade webE3, WebElementFacade webE4, WebElementFacade webE5, WebElementFacade webE6, String fecha, String action) {
-        try {
-            switch (action) {
-                case "type":
-                    soloIda = false;
-                    esperarCamposFecha(webE1, webE2, webE3, webE4, webE5, webE6);
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
-                    LocalDate date = LocalDate.parse(fecha, formatter);
                     rellenarCampos(date, webE1, webE2, webE3, webE4, webE5, webE6);
                     return true;
+                } else {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
+                    LocalDate date = null;
+                    date = LocalDate.now();
+                    soloIda = true;
+                    rellenarCampos(date, webE1, webE2, webE3, webE4, webE5, webE6);
+                    soloIda = false;
+                    date = LocalDate.parse(fecha, formatter);
+                    rellenarCampos(date, webE1, webE2, webE3, webE4, webE5, webE6);
+                    return true;
+                }
             }
         } catch (Exception e) {
             return false;
