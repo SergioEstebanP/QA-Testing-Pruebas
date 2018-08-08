@@ -27,9 +27,52 @@
   @parametros
   Scenario Outline: Ryanair booking with parameters table ?[90m# src/test/resources/features/example.feature:37?[0m
 
-1 Scenarios (?[32m1 passed?[0m)
-11 Steps (?[32m11 passed?[0m)
-0m54,345s
+  @parametros
+  Scenario Outline: Ryanair booking with parameters table ?[90m# src/test/resources/features/example.feature:38?[0m
+
+?[31mFailed scenarios:?[0m
+?[31msrc/test/resources/features/example.feature:37 ?[0m# Ryanair booking with parameters table
+?[31msrc/test/resources/features/example.feature:38 ?[0m# Ryanair booking with parameters table
+
+2 Scenarios (?[31m2 failed?[0m)
+22 Steps (?[31m2 failed?[0m, ?[36m10 skipped?[0m, ?[32m10 passed?[0m)
+0m53,904s
+
+java.lang.AssertionError: Fail while tab in result page
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at com.page.RyanairSearchPage.tabToResult(RyanairSearchPage.java:117)
+	at com.serenitySteps.RyanairSearchSteps.tabToResult(RyanairSearchSteps.java:63)
+	at com.serenitySteps.RyanairSearchSteps$$EnhancerByCGLIB$$738b1b9a.CGLIB$tabToResult$4(<generated>)
+	at com.serenitySteps.RyanairSearchSteps$$EnhancerByCGLIB$$738b1b9a$$FastClassByCGLIB$$b677f443.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:450)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:435)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:410)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:151)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:138)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:69)
+	at com.serenitySteps.RyanairSearchSteps$$EnhancerByCGLIB$$738b1b9a.tabToResult(<generated>)
+	at com.stepDefinitions.RyanairSearchStepDefinitions.tabToResult(RyanairSearchStepDefinitions.java:69)
+	at ?.I tab to result page(src/test/resources/features/example.feature:32)
+
+java.lang.AssertionError: Fail while click in cookies
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at com.page.RyanairSearchPage.closeCookiesPolitics(RyanairSearchPage.java:113)
+	at com.serenitySteps.RyanairSearchSteps.closeCookiesPolitics(RyanairSearchSteps.java:23)
+	at com.serenitySteps.RyanairSearchSteps$$EnhancerByCGLIB$$738b1b9a.CGLIB$closeCookiesPolitics$10(<generated>)
+	at com.serenitySteps.RyanairSearchSteps$$EnhancerByCGLIB$$738b1b9a$$FastClassByCGLIB$$b677f443.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:450)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:435)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:410)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:151)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:138)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:69)
+	at com.serenitySteps.RyanairSearchSteps$$EnhancerByCGLIB$$738b1b9a.closeCookiesPolitics(<generated>)
+	at com.stepDefinitions.RyanairSearchStepDefinitions.closeCookiesPolitics(RyanairSearchStepDefinitions.java:23)
+	at ?.I close cookies politics(src/test/resources/features/example.feature:24)
 
 ]]></system-out>
   <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".

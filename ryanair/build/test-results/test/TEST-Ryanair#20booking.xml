@@ -1,26 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Ryanair booking" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-08-07T12:33:23" hostname="SG-2708" time="53.883">
+<testsuite name="Ryanair booking" tests="2" skipped="0" failures="2" errors="0" timestamp="2018-08-08T07:43:59" hostname="SG-2708" time="53.3">
   <properties/>
-  <testcase name="Ryanair booking with parameters table" classname="Ryanair booking" time="53.883"/>
+  <testcase name="Ryanair booking with parameters table" classname="Ryanair booking" time="43.798">
+    <failure message="java.lang.AssertionError: Fail while tab in result page" type="java.lang.AssertionError">java.lang.AssertionError: Fail while tab in result page
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at com.page.RyanairSearchPage.tabToResult(RyanairSearchPage.java:117)
+	at com.serenitySteps.RyanairSearchSteps.tabToResult(RyanairSearchSteps.java:63)
+	at com.serenitySteps.RyanairSearchSteps$$EnhancerByCGLIB$$738b1b9a.CGLIB$tabToResult$4(&lt;generated&gt;)
+	at com.serenitySteps.RyanairSearchSteps$$EnhancerByCGLIB$$738b1b9a$$FastClassByCGLIB$$b677f443.invoke(&lt;generated&gt;)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:450)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:435)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:410)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:151)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:138)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:69)
+	at com.serenitySteps.RyanairSearchSteps$$EnhancerByCGLIB$$738b1b9a.tabToResult(&lt;generated&gt;)
+	at com.stepDefinitions.RyanairSearchStepDefinitions.tabToResult(RyanairSearchStepDefinitions.java:69)
+	at ✽.I tab to result page(src/test/resources/features/example.feature:32)
+</failure>
+  </testcase>
+  <testcase name="Ryanair booking with parameters table" classname="Ryanair booking" time="9.402">
+    <failure message="java.lang.AssertionError: Fail while click in cookies" type="java.lang.AssertionError">java.lang.AssertionError: Fail while click in cookies
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at com.page.RyanairSearchPage.closeCookiesPolitics(RyanairSearchPage.java:113)
+	at com.serenitySteps.RyanairSearchSteps.closeCookiesPolitics(RyanairSearchSteps.java:23)
+	at com.serenitySteps.RyanairSearchSteps$$EnhancerByCGLIB$$738b1b9a.CGLIB$closeCookiesPolitics$10(&lt;generated&gt;)
+	at com.serenitySteps.RyanairSearchSteps$$EnhancerByCGLIB$$738b1b9a$$FastClassByCGLIB$$b677f443.invoke(&lt;generated&gt;)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:450)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:435)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:410)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:151)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:138)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:69)
+	at com.serenitySteps.RyanairSearchSteps$$EnhancerByCGLIB$$738b1b9a.closeCookiesPolitics(&lt;generated&gt;)
+	at com.stepDefinitions.RyanairSearchStepDefinitions.closeCookiesPolitics(RyanairSearchStepDefinitions.java:23)
+	at ✽.I close cookies politics(src/test/resources/features/example.feature:24)
+</failure>
+  </testcase>
   <system-out><![CDATA[    ?[32mGiven ?[0m?[32mI have ryanair webpage open in Chrome?[0m           ?[90m# RyanairSearchStepDefinitions.iWantToBookingOnRyanair()?[0m
     ?[32mAnd ?[0m?[32mI close cookies politics?[0m                          ?[90m# RyanairSearchStepDefinitions.closeCookiesPolitics()?[0m
     ?[32mWhen ?[0m?[32mI click for '?[0m?[32m?[1midaVuelta?[0m?[32m'?[0m                          ?[90m# RyanairSearchStepDefinitions.iSelectDirection(String)?[0m
-    ?[32mAnd ?[0m?[32mI want to go from '?[0m?[32m?[1mValladolid?[0m?[32m'?[0m                    ?[90m# RyanairSearchStepDefinitions.iWantToGoFrom(String)?[0m
-    ?[32mAnd ?[0m?[32mI want to go to '?[0m?[32m?[1mBarcelona?[0m?[32m'?[0m                       ?[90m# RyanairSearchStepDefinitions.iWantToGoTo(String)?[0m
-false
+    ?[32mAnd ?[0m?[32mI want to go from '?[0m?[32m?[1mMadrid?[0m?[32m'?[0m                        ?[90m# RyanairSearchStepDefinitions.iWantToGoFrom(String)?[0m
+    ?[32mAnd ?[0m?[32mI want to go to '?[0m?[32m?[1mToulouse?[0m?[32m'?[0m                        ?[90m# RyanairSearchStepDefinitions.iWantToGoTo(String)?[0m
     ?[32mAnd ?[0m?[32mI want to go in date '?[0m?[32m?[1mAugust 8, 2018?[0m?[32m'?[0m             ?[90m# RyanairSearchStepDefinitions.iWantToGoToNextDayFromToday(String)?[0m
-false
     ?[32mAnd ?[0m?[32mI want to return in date '?[0m?[32m?[1mAugust 12, 2018?[0m?[32m'?[0m        ?[90m# RyanairSearchStepDefinitions.iWantToReturnInDateDateReturn(String)?[0m
-    ?[32mAnd ?[0m?[32mThe trip is for '?[0m?[32m?[1m2?[0m?[32m' adults?[0m                        ?[90m# RyanairSearchStepDefinitions.theTripIsForNumberOfAdultsAdults(String)?[0m
+esperando al elemento
+elemento 1 pasado
+elemento 1 clickado
+elemento 2 pasado
+elemento 2 clickado
+    ?[32mAnd ?[0m?[32mThe trip is for '?[0m?[32m?[1m4?[0m?[32m' adults?[0m                        ?[90m# RyanairSearchStepDefinitions.theTripIsForNumberOfAdultsAdults(String)?[0m
     ?[32mAnd ?[0m?[32mI click in go button?[0m                              ?[90m# RyanairSearchStepDefinitions.iClickInGoButton()?[0m
-    ?[32mAnd ?[0m?[32mI tab to result page?[0m                              ?[90m# RyanairSearchStepDefinitions.tabToResult()?[0m
-    ?[32mThen ?[0m?[32mI see the result page with almost one flight?[0m     ?[90m# RyanairSearchStepDefinitions.seeTheResultPage()?[0m
+    ?[31mAnd ?[0m?[31mI tab to result page?[0m                              ?[90m# RyanairSearchStepDefinitions.tabToResult()?[0m
+      ?[31mjava.lang.AssertionError: Fail while tab in result page
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at com.page.RyanairSearchPage.tabToResult(RyanairSearchPage.java:117)
+	at com.serenitySteps.RyanairSearchSteps.tabToResult(RyanairSearchSteps.java:63)
+	at com.serenitySteps.RyanairSearchSteps$$EnhancerByCGLIB$$738b1b9a.CGLIB$tabToResult$4(<generated>)
+	at com.serenitySteps.RyanairSearchSteps$$EnhancerByCGLIB$$738b1b9a$$FastClassByCGLIB$$b677f443.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:450)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:435)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:410)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:151)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:138)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:69)
+	at com.serenitySteps.RyanairSearchSteps$$EnhancerByCGLIB$$738b1b9a.tabToResult(<generated>)
+	at com.stepDefinitions.RyanairSearchStepDefinitions.tabToResult(RyanairSearchStepDefinitions.java:69)
+	at ?.I tab to result page(src/test/resources/features/example.feature:32)
+?[0m
+    ?[36mThen ?[0m?[36mI see the result page with almost one flight?[0m     ?[90m# RyanairSearchStepDefinitions.seeTheResultPage()?[0m
+    ?[32mGiven ?[0m?[32mI have ryanair webpage open in Chrome?[0m           ?[90m# RyanairSearchStepDefinitions.iWantToBookingOnRyanair()?[0m
+    ?[31mAnd ?[0m?[31mI close cookies politics?[0m                          ?[90m# RyanairSearchStepDefinitions.closeCookiesPolitics()?[0m
+      ?[31mjava.lang.AssertionError: Fail while click in cookies
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at com.page.RyanairSearchPage.closeCookiesPolitics(RyanairSearchPage.java:113)
+	at com.serenitySteps.RyanairSearchSteps.closeCookiesPolitics(RyanairSearchSteps.java:23)
+	at com.serenitySteps.RyanairSearchSteps$$EnhancerByCGLIB$$738b1b9a.CGLIB$closeCookiesPolitics$10(<generated>)
+	at com.serenitySteps.RyanairSearchSteps$$EnhancerByCGLIB$$738b1b9a$$FastClassByCGLIB$$b677f443.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:450)
+	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:435)
+	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:410)
+	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:151)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:138)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:69)
+	at com.serenitySteps.RyanairSearchSteps$$EnhancerByCGLIB$$738b1b9a.closeCookiesPolitics(<generated>)
+	at com.stepDefinitions.RyanairSearchStepDefinitions.closeCookiesPolitics(RyanairSearchStepDefinitions.java:23)
+	at ?.I close cookies politics(src/test/resources/features/example.feature:24)
+?[0m
+    ?[36mWhen ?[0m?[36mI click for '?[0m?[36m?[1midaVuelta?[0m?[36m'?[0m                          ?[90m# RyanairSearchStepDefinitions.iSelectDirection(String)?[0m
+    ?[36mAnd ?[0m?[36mI want to go from '?[0m?[36m?[1mMadrid?[0m?[36m'?[0m                        ?[90m# RyanairSearchStepDefinitions.iWantToGoFrom(String)?[0m
+    ?[36mAnd ?[0m?[36mI want to go to '?[0m?[36m?[1mBarcelona?[0m?[36m'?[0m                       ?[90m# RyanairSearchStepDefinitions.iWantToGoTo(String)?[0m
+    ?[36mAnd ?[0m?[36mI want to go in date '?[0m?[36m?[1mAugust 10, 2018?[0m?[36m'?[0m            ?[90m# RyanairSearchStepDefinitions.iWantToGoToNextDayFromToday(String)?[0m
+    ?[36mAnd ?[0m?[36mI want to return in date '?[0m?[36m?[1mAugust 20, 2018?[0m?[36m'?[0m        ?[90m# RyanairSearchStepDefinitions.iWantToReturnInDateDateReturn(String)?[0m
+    ?[36mAnd ?[0m?[36mThe trip is for '?[0m?[36m?[1m2?[0m?[36m' adults?[0m                        ?[90m# RyanairSearchStepDefinitions.theTripIsForNumberOfAdultsAdults(String)?[0m
+    ?[36mAnd ?[0m?[36mI click in go button?[0m                              ?[90m# RyanairSearchStepDefinitions.iClickInGoButton()?[0m
+    ?[36mAnd ?[0m?[36mI tab to result page?[0m                              ?[90m# RyanairSearchStepDefinitions.tabToResult()?[0m
+    ?[36mThen ?[0m?[36mI see the result page with almost one flight?[0m     ?[90m# RyanairSearchStepDefinitions.seeTheResultPage()?[0m
 ]]></system-out>
-  <system-err><![CDATA[ago 07, 2018 2:33:23 PM org.openqa.selenium.remote.DesiredCapabilities chrome
+  <system-err><![CDATA[ago 08, 2018 9:44:00 AM org.openqa.selenium.remote.DesiredCapabilities chrome
 INFORMACIÓN: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
-Starting ChromeDriver 2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e) on port 1088
+Starting ChromeDriver 2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e) on port 19807
 Only local connections are allowed.
-ago 07, 2018 2:33:26 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+ago 08, 2018 9:44:03 AM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFORMACIÓN: Detected dialect: OSS
 ]]></system-err>
 </testsuite>

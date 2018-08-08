@@ -94,11 +94,11 @@ public class RyanairSearchPage extends PageObject {
     }
 
     public void typeDateTrip (String fechaBuscada) {
-        Assert.assertTrue("Fail while typing from date", RyanairGeneralActions.typeDateTripOnce(destinyTextfieldD, destinyTextfieldM, destinyTextFieldA, destinyTextfieldD1, destinyTextfieldM1, destinyTextFieldA1, fechaBuscada, "type"));
+        Assert.assertTrue("Fail while typing from date", RyanairGeneralActions.typeDateTripOnce(destinyTextfieldD, destinyTextfieldM, destinyTextFieldA, destinyTextfieldD1, destinyTextfieldM1, destinyTextFieldA1, fechaBuscada, true, "type"));
     }
 
     public void typeDateTripReturn(String fechaVuelta) {
-        Assert.assertTrue("Fail while typing finale date", RyanairGeneralActions.typeDateTripOnce(destinyTextfieldD, destinyTextfieldM, destinyTextFieldA, destinyTextfieldD1, destinyTextfieldM1, destinyTextFieldA1, fechaVuelta, "type"));
+        Assert.assertTrue("Fail while typing finale date", RyanairGeneralActions.typeDateTripOnce(destinyTextfieldD, destinyTextfieldM, destinyTextFieldA, destinyTextfieldD1, destinyTextfieldM1, destinyTextFieldA1, fechaVuelta, false,"type"));
     }
 
     public void selectNumberOfAdults(String adults) {

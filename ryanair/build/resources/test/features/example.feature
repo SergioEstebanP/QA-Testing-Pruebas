@@ -34,6 +34,7 @@ Feature: Ryanair booking
 
     Examples:
       | direccion | salida     | llegada           | date              | dateReturn      | numberOfAdults |
-      | idaVuelta | Valladolid | Barcelona         |  August 8, 2018   | August 12, 2018 | 2              |
+      | idaVuelta | Madrid | Toulouse          | August 8, 2018    | August 12, 2018 | 4              |
+      | idaVuelta | Madrid     | Barcelona          | August 10, 2018   | August 20, 2018 | 2              |
 
 

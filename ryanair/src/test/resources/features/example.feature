@@ -33,7 +33,7 @@ Feature: Ryanair booking
     Then I see the result page with almost one flight
 
     Examples:
-      | direccion | salida     | llegada           | date              | dateReturn      | numberOfAdults |
-      | idaVuelta | Valladolid | Barcelona         |  August 8, 2018   | August 12, 2018 | 2              |
+      | direccion | salida | llegada   | date            | dateReturn      | numberOfAdults |
+      | idaVuelta | Madrid | Toulouse  | August 8, 2018  | August 12, 2018 | 4              |
 
 

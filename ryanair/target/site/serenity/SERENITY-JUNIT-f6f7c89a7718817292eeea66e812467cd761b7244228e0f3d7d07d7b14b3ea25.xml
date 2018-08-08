@@ -1,1 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Ryanair booking" skipped="0" tests="1" time="54.24" timestamp="2018-08-07T14:33:22.834+02:00[Europe/Paris]"><testcase name="Ryanair booking with parameters table"/></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="2" name="Ryanair booking" skipped="0" tests="2" time="53.76" timestamp="2018-08-08T09:43:59.485+02:00[Europe/Paris]"><testcase name="Ryanair booking with parameters table"><failure message="Fail while tab in result page" type="java.lang.AssertionError">Fail while tab in result page</failure><system-err>Fail while tab in result page&#13;
+com.page.RyanairSearchPage.tabToResult(RyanairSearchPage.java:117)&#13;
+com.serenitySteps.RyanairSearchSteps.tabToResult(RyanairSearchSteps.java:63)&#13;
+com.stepDefinitions.RyanairSearchStepDefinitions.tabToResult(RyanairSearchStepDefinitions.java:69)&#13;
+✽.I tab to result page(src/test/resources/features/example.feature:32)&#13;
+</system-err></testcase></testsuite>

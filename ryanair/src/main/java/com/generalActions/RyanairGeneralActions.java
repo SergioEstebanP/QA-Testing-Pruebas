@@ -51,8 +51,8 @@ public class RyanairGeneralActions {
         return false;
     }
 
-    public static boolean typeDateTripOnce (WebElementFacade webE1, WebElementFacade webE2, WebElementFacade webE3, WebElementFacade webE4, WebElementFacade webE5, WebElementFacade webE6, String fecha, String action) {
-        System.out.println(soloIda);
+    public static boolean typeDateTripOnce (WebElementFacade webE1, WebElementFacade webE2, WebElementFacade webE3, WebElementFacade webE4, WebElementFacade webE5, WebElementFacade webE6, String fecha, Boolean control, String action) {
+        soloIda = control;
         try {
             if (action.equals("type")) {
                 esperarCamposFecha(webE1, webE2, webE3, webE4, webE5, webE6);
@@ -69,12 +69,8 @@ public class RyanairGeneralActions {
                     return true;
                 } else {
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH);
-                    LocalDate date = null;
-                    date = LocalDate.now();
-                    soloIda = true;
-                    rellenarCampos(date, webE1, webE2, webE3, webE4, webE5, webE6);
                     soloIda = false;
-                    date = LocalDate.parse(fecha, formatter);
+                    LocalDate date = LocalDate.parse(fecha, formatter);
                     rellenarCampos(date, webE1, webE2, webE3, webE4, webE5, webE6);
                     return true;
                 }
@@ -121,15 +117,25 @@ public class RyanairGeneralActions {
 
     public static boolean selectNumberOfAdults (WebElementFacade webE1, WebElementFacade webE2, String numberOfAdults, String action) {
         try {
-            webE1.waitUntilClickable();
+            System.out.println("esperando al elemento");
+            webE1.waitUntilEnabled();
+            System.out.println("elemento 1 pasado");
             switch (action) {
                 case "click":
                     webE1.click();
+                    System.out.println("elemento 1 clickado");
+                    webE1.waitUntilEnabled();
+                    webE1.waitUntilClickable();
+                    System.out.println("elemento 2 pasado");
                     for (int i=1;i<Integer.parseInt(numberOfAdults);i++)
                         webE2.click();
+                        System.out.println("elemento 2 clickado");
                     return true;
             }
-        } catch (Exception e) { return false;}
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        }
         return false;
     }
 
